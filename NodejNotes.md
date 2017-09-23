@@ -10,9 +10,13 @@ Notes on Node.js server side JavaScript environment
 
 # Installing and running on Windows
 
+## Install
+
 * Straightforward msi install
 
 [Download](https://nodejs.org/en/)
+
+## Run
 
 * To run the Node.js shell (REPL - Read Evaluate Print Loop) from command line:
 
@@ -22,9 +26,17 @@ Note: Make sure the Add Path was selected during installation (default) so it is
 
 Note: the installation also installs a shortcut to this command that you can search for
 
+* To run a script from the command line
+
+`node example.js`
+
 * To exit the node shell
 
 `.exit`
+
+or
+
+`Ctr-C Ctrl-C`
 
 # Run in Visual Studio
 
@@ -72,6 +84,43 @@ Installs the **express** module into the **node_modules** folder
 
 * You can use `npm init` to create this file for you.
 
-# Creating -g REST APIs
+# Creating REST APIs
 
 * Node is used extensively for creating REST APIs
+
+# Examples
+
+## Simple Server App
+ 
+* Create the project folder with a file named **server.js**
+
+* Create the package.json file
+
+`npm init`
+
+Follow the prompts making sure the "main" entry point is **server.js**
+
+* Enter code in **server.js((
+
+```
+const http = require('http');
+const hostname = '127.0.0.1'
+const port = '3000'
+
+const server = http.createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+	console.log('Server started on port: ' + port);
+});
+```
+
+* Run script
+
+`node server`
+
+This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display `Hello World`
+
