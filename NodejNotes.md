@@ -100,7 +100,7 @@ Installs the **express** module into the **node_modules** folder
 
 Follow the prompts making sure the "main" entry point is **server.js**
 
-* Enter code in **server.js((
+* Enter code in **server.js**
 
 ```
 const http = require('http');
@@ -124,3 +124,46 @@ server.listen(port, hostname, () => {
 
 This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display `Hello World`
 
+## Serve an HTML file using the fs (file system module)
+
+* Create the project folder with a file named **server.js**
+
+* Create the package.json file
+
+`npm init`
+
+Follow the prompts making sure the "main" entry point is **server.js**
+
+* Enter code in **server.js**
+
+```
+const http = require('http');
+const fs = require('fs');
+
+
+const hostname = '127.0.0.1'
+const port = '3000'
+
+fs.readFile('index.html', (err, html) => {
+	if (err) {
+		throw err;
+	}
+
+	const server = http.createServer((req, res) => {
+		res.statusCode = 200;
+		res.setHeader('Content-type', 'text/html');
+		res.write(html);
+		res.end();
+	});
+
+	server.listen(port, hostname, () => {
+		console.log('Server started on port: ' + port);
+	});
+});
+```
+
+* Run script
+
+`node server`
+
+This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display the index.html web page read from the file system.
