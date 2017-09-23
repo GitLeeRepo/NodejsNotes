@@ -38,6 +38,13 @@ or
 
 `Ctr-C Ctrl-C`
 
+# Install on Ubuntu
+
+```
+sudo apt-get install build-essential
+sudo apt-get install nodejs npm
+```
+
 # Run in Visual Studio
 
 * Make sure Node.js was installed with Visual Studio Installer
