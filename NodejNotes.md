@@ -91,6 +91,22 @@ Installs the **express** module into the **node_modules** folder
 
 * You can use `npm init` to create this file for you.
 
+## Live Server Module
+
+* Useful for creating a live http server for a particular project directory.  This is useful for example when you want to test AJAX calls using a local file system file, since security restraints don't allow you to use the local file system
+
+* To install
+
+`npm install -g live-server` - installs it globally
+
+* To run, type this in your project directory
+
+`live-server` - will run the server on port 8080
+
+* For more advanced configuration options refer to the [GitHub repository](https://github.com/tapio/live-server) for this module.
+
+* Note that you can dynamically make changes to your project files without having to restart the server.
+
 # Creating REST APIs
 
 * Node is used extensively for creating REST APIs
