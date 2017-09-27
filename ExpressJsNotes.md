@@ -22,8 +22,22 @@ Notes on the ExpressJS framework for Node.js
 
 * Routing 
 
-* Template Engines
+* Template Engines - EJS, Handlebars, Jade
 
 * Models
 
 * Express Generators
+
+# Installation
+
+* Node.js is required
+
+*  In the project folder
+
+```
+npm init
+
+npm install express --save
+```
+This initializes the project folder with the packages.json file, installs ExpressJS and adds its dependencies to packages.json
+
