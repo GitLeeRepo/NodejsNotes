@@ -60,6 +60,7 @@ var express = require('express');
 
 var app = express();
 
+// Route handler
 // handling GET requests to document root, 
 // you would use post for POST requests
 app.get('/', function(req, res){
@@ -72,4 +73,23 @@ app.listen(3000, function() {
 ```
 Assuming app name is app.js run `node app` and then from a browser go to localhost:3000 to see "Hello World" displayed
 
+# Middleware
+
+* Middleware are functions that have access to the request and response streams and to the next middleware function
+
+* Most modules in Express will have their own middleware that needs to be included
+
+* You can create your own custom middleware functions
+
+* Example custom middleware function
+
+```javascript
+var logger = function(req, res, next) {
+    console.log('Logging...');
+    next();
+}
+
+app.use(logger);
+```
+Note this logger event handler will be triggered every time the app is called (page load and refreshes for example)
 
