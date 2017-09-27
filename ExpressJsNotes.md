@@ -57,8 +57,6 @@ In this case it will install express in addition to the body-parser module.  Thi
 
 ```javascript
 var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
 
 var app = express();
 
