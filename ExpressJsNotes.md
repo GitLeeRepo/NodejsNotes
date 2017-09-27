@@ -73,6 +73,14 @@ app.listen(3000, function() {
 ```
 Assuming app name is app.js run `node app` and then from a browser go to localhost:3000 to see "Hello World" displayed
 
+* Variation of the above app.get() outputting JSON
+
+```
+app.get('/', function(req, res){
+    res.json(people);
+})
+```
+
 # Middleware
 
 * Middleware are functions that have access to the request and response streams and to the next middleware function
@@ -121,3 +129,21 @@ This enables parsing of JSON and urlencoded content
 app.use(express.static(path.join(__dirname, 'client')));
 ```
 Tells Express the location of static files (css, html, etc) to be sent to the client (in this case a folder off the project root called client.  Note that if you put an index.html in here it would take precedence and display instead of any server side output.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
+
+# Template Engines
+
+## EJS
+
+* Install
+
+`npm install ejs --save`
+
+
+
+* Outputting a people JavaScript object as JSON
+
+```
+app.get('/', function(req, res){
+    res.json(people);
+})
+```
