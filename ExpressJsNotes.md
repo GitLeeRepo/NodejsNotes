@@ -80,6 +80,7 @@ app.get('/', function(req, res){
     res.json(people);
 })
 ```
+This takes the people JavaScript object and outputs it as JSON
 
 # Middleware
 
@@ -139,11 +140,30 @@ Tells Express the location of static files (css, html, etc) to be sent to the cl
 `npm install ejs --save`
 
 
+*
 
-* Outputting a people JavaScript object as JSON
+* Example code for template view
 
 ```
+var express = require('express');
+var path = require('path');
+var app = express();
+
+...
+
+// set view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+/* ===== Route handlers ===== */
+
+// render the views/index.ejs view
 app.get('/', function(req, res){
-    res.json(people);
+    res.render('index');  
+})
+
+app.listen(3000, function() {
+    console.log('Server started on port 3000');
 })
 ```
+A simple HTML snippet was placed in the views/index.ejs file which is then output by the res.render() method
