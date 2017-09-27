@@ -131,16 +131,13 @@ app.use(express.static(path.join(__dirname, 'client')));
 ```
 Tells Express the location of static files (css, html, etc) to be sent to the client (in this case a folder off the project root called client.  Note that if you put an index.html in here it would take precedence and display instead of any server side output.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
 
-# Template Engines
+# Views and Template Engines
 
 ## EJS
 
 * Install
 
 `npm install ejs --save`
-
-
-*
 
 * Example code for template view
 
