@@ -81,15 +81,43 @@ Assuming app name is app.js run `node app` and then from a browser go to localho
 
 * You can create your own custom middleware functions
 
-* Example custom middleware function
+* The order of where the middleware is placed is important.  For example if you placed it after the app.listen it would not fire.
+
+* Since middleware has access to the request and response you can whatever you want to modify the behavior of the app
+
+## Custom middleware example
+
+* Custom middleware function
 
 ```javascript
 var logger = function(req, res, next) {
     console.log('Logging...');
     next();
 }
-
 app.use(logger);
 ```
 Note this logger event handler will be triggered every time the app is called (page load and refreshes for example)
 
+## body-parser middleware example
+
+```javascript
+var express = require('express');
+var bodyParser = require('body-parser');
+var path = require('path');
+var app = express();
+
+// body-parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+```
+This enables parsing of JSON and urlencoded content
+
+## Middleware for setting static folder
+
+* Example
+
+```
+// static folder middleware
+app.use(express.static(path.join(__dirname, 'client')));
+```
+Tells Express the location of static files (css, html, etc) to be sent to the client (in this case a folder off the project root called client.  Note that if you put an index.html in here it would take precedence and display instead of any server side output.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
