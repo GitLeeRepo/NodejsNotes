@@ -166,4 +166,19 @@ app.listen(3000, function() {
     console.log('Server started on port 3000');
 })
 ```
-A simple HTML snippet was placed in the views/index.ejs file which is then output by the res.render() method
+In this case a simple HTML snippet was placed in the views/index.ejs file which is then output by the res.render() method.
+
+The res.render() can be modified to use the template feature of the view engine (ejs in this case)
+
+```
+app.get('/', function(req, res){
+    res.render('index', { title:"View Demo"});
+})
+```
+
+If views/index.ejs contains the following:
+
+```
+<h1><%= title %></h1>
+```
+it will displays the "View Demo" text in the `<h1>` tag when rendered.
