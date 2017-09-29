@@ -2,6 +2,24 @@
 
 Notes on Node.js server side JavaScript environment
 
+Node.js is/has/does:
+
+* Server-side JavaScript environment
+
+* Event-driven, asynchronous programming model. 
+
+* Extensible through modules
+
+* NPM - Node Package Manager - powerful and  easy to use command line package manager
+
+* Reduces the complexity of server-side application development with Node itself and its many modules
+
+* Useful for building REST APIs
+
+* "The biggest difference between Node.js and PHP is that most functions in PHP block until completion (commands execute only after previous commands have completed), while functions in Node.js are designed to be non-blocking (commands execute in parallel, and use callbacks to signal completion or failure)." [Wikipedia](https://en.wikipedia.org/wiki/Node.js)
+
+
+
 # References
 
 * [Main Site](https://nodejs.org/en/)
