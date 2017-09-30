@@ -179,3 +179,66 @@ If views/index.ejs contains the following:
 <h1><%= title %></h1>
 ```
 it will displays the "View Demo" text in the `<h1>` tag when rendered.
+
+# Route handling
+
+Route handling is used for responding to requests from specific HTTP methods (GET, POST, PUT, DELETE) and specific URIs
+
+## Handling GET requests
+
+* Example getting data from MongoDB and rendering it using the index view template
+
+```javascript
+app.get('/', function(req, res){
+    db.users.find(function (err, docs) {
+        res.render('index', 
+        { 
+            title:"Users",
+            users: docs
+        });
+    });
+})
+```
+
+## Handling POST requests
+
+* Addding a user to a MongoDB database with post
+
+```javascript
+app.post('/', function(req, res) {
+    var newUser = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email
+    }
+    db.users.insert(newUser, function(err, result){
+        if (err) {
+            console.log(err);
+        }
+    });          
+})
+```
+Note this uses the same URI as the GET example.  This is ok because they are two different HTTP methods (GET & POST).  An alternative end-point could have been `app.post('/users/add', function(req, res)` as but one example.
+
+## Handling DELETE requests
+
+* Example of deleting a user from a MongoDB with the delete method
+
+```javascript
+app.delete('/users/delete/:id', function(req, res){
+    db.users.remove({ _id: ObjectId(req.params.id)}, function(err, result){
+        if (err){
+            console.log(err);
+        }
+        else {
+            res.statusCode = 200;
+            console.log(result.n + ' user(s) deleted');
+        }
+    });
+    console.log('delete: ' + req.params.id + ' - status: ' + res.statusCode);    
+    res.redirect('/');
+})
+```
+This example use an '`:id` selector as part of the URI.  This is a placeholder for the req.params.id that is represented in the index view with the data-id attribute in `<a href="#" class="deleteUser" data-id="<%=user._id%>">Delete</a>` which is assigned the MongoDB _id value.
+
+Note that this delete could have been represented by the same "/" end-point as the GET and POST since it is a different HTTP method, but in this case a different URI was used, with a redirect back to the original end-point.
