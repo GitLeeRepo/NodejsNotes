@@ -206,3 +206,24 @@ Will run the server on port 8080
 	node server
 	```
 	This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display the index.html web page read from the file system.
+
+# NPM
+
+## Various NPM commands
+
+### Getting installed module versions
+
+* Listing all packages
+
+Select either local list or global list	
+```
+npm list 
+
+npm list -g
+```
+
+* Getting a specific module version
+
+```
+npm list modulename
+```
