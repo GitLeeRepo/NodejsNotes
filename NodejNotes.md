@@ -15,7 +15,7 @@ Node.js is/has/does:
 # References
 
 * [Main Site](https://nodejs.org/en/)
-* [Node.js for Beginners](https://www.youtube.com/watch?v=U8XF6AFGqlc) YouTube video by Traversey Media.  Several of the notes here taken from this video.
+* [Node.js for Beginners](https://www.youtube.com/watch?v=U8XF6AFGqlc) YouTube video by Traversy Media.  Several of the notes here taken from this video.
 
 ## Code examples
 

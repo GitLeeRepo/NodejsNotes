@@ -200,7 +200,7 @@ Route handling is used for responding to requests from specific HTTP methods (GE
 
 ## Handling POST requests
 
-* Addding a user to a MongoDB database with post
+* Adding a user to a MongoDB database with post
 
 	```javascript
 	app.post('/', function(req, res) {
