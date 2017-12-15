@@ -25,7 +25,7 @@ Node.js is/has/does:
 
 ## Install
 
-* Straightforward msi install
+* Straightforward MSI install
 
 	[Download](https://nodejs.org/en/)
 
@@ -99,7 +99,7 @@ sudo apt-get install nodejs npm
 
 * Important JSON file that goes in the root of your module or project folder.  Configuration file used to tell how to install your module or app.
 * "main" in this file is the entry point script for the project
-* "dependencies" lists all the required modules (use an astricks to specify the latest version of a module.
+* "dependencies" lists all the required modules (use an asterisks to specify the latest version of a module.
 * You can use `npm init` to create this file for you.
 
 ## Live Server Module
@@ -191,7 +191,7 @@ Will run the server on port 8080
 		const server = http.createServer((req, res) => {
 			res.statusCode = 200;
 			res.setHeader('Content-type', 'text/html');
-			res.setHeader('Server', 'My Superduper WebServer');
+			res.setHeader('Server', 'My Superduper Web Server');
 			res.write(html);
 			res.end();
 		});

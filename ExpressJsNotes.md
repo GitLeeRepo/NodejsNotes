@@ -55,7 +55,7 @@ Notes on the ExpressJS framework for Node.js
 
 * Simple app.js example
 
-	```javascript
+	```JavaScript
 	var express = require('express');
 
 	var app = express();
@@ -94,7 +94,7 @@ Notes on the ExpressJS framework for Node.js
 
 * Custom middleware function
 
-	```javascript
+	```JavaScript
 	var logger = function(req, res, next) {
 			console.log('Logging...');
 			next();
@@ -105,7 +105,7 @@ Notes on the ExpressJS framework for Node.js
 
 ## body-parser middleware example
 
-```javascript
+```JavaScript
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -186,7 +186,7 @@ Route handling is used for responding to requests from specific HTTP methods (GE
 
 * Example getting data from MongoDB and rendering it using the index view template
 
-	```javascript
+	```JavaScript
 	app.get('/', function(req, res){
 			db.users.find(function (err, docs) {
 					res.render('index', 
@@ -202,7 +202,7 @@ Route handling is used for responding to requests from specific HTTP methods (GE
 
 * Adding a user to a MongoDB database with post
 
-	```javascript
+	```JavaScript
 	app.post('/', function(req, res) {
 			var newUser = {
 					first_name: req.body.first_name,
@@ -222,7 +222,7 @@ Route handling is used for responding to requests from specific HTTP methods (GE
 
 * Example of deleting a user from a MongoDB with the delete method
 
-	```javascript
+	```JavaScript
 	app.delete('/users/delete/:id', function(req, res){
 			db.users.remove({ _id: ObjectId(req.params.id)}, function(err, result){
 					if (err){
