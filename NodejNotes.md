@@ -17,6 +17,13 @@ Node.js is/has/does:
 * [Main Site](https://nodejs.org/en/)
 * [Node.js for Beginners](https://www.youtube.com/watch?v=U8XF6AFGqlc) YouTube video by Traversy Media.  Several of the notes here taken from this video.
 
+## My Other Notes
+
+* [JavaScriptNotes](https://github.com/GitLeeRepo/JavaScriptNotes/blob/master/JavaScriptNotes.md#overview)
+* [PHPNotes](https://github.com/GitLeeRepo/PHPNotes/blob/master/PHPNotes.md#overview)
+* [PythonNotes](https://github.com/GitLeeRepo/PythonNotes/blob/master/PythonNotes.md#overview)
+* [WordPressNotes](https://github.com/GitLeeRepo/WordPressNotes/blob/master/WordPressNotes.md#overview)
+
 ## Code examples
 
 * [NodeJsSandbox](https://github.com/GitLeeRepo/NodeJsSandbox)
