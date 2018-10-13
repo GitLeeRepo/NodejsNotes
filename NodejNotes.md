@@ -22,6 +22,7 @@ Node.js is/has/does:
 * [JavaScriptNotes](https://github.com/GitLeeRepo/JavaScriptNotes/blob/master/JavaScriptNotes.md#overview)
 * [PHPNotes](https://github.com/GitLeeRepo/PHPNotes/blob/master/PHPNotes.md#overview)
 * [PythonNotes](https://github.com/GitLeeRepo/PythonNotes/blob/master/PythonNotes.md#overview)
+* [RestApiNotes](https://github.com/GitLeeRepo/RestApiNotes/blob/master/RestApiNotes.md#overview)
 * [WordPressNotes](https://github.com/GitLeeRepo/WordPressNotes/blob/master/WordPressNotes.md#overview)
 
 ## Code examples
