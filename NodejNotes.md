@@ -24,7 +24,7 @@ Notes on Node.js server side JavaScript environment
 
 # Concepts and Terminology
 
-**Node.js** is/has/does:
+## Node.js
 
 * **Server-side JavaScript** environment
 * **Event-driven**, **asynchronous** programming model
@@ -37,7 +37,7 @@ Notes on Node.js server side JavaScript environment
 * Supports tens of thousands of **concurrent connections**
 * Use **EventEmmitter** class to **bind events to listeners**
 
-**NPM*:
+## NPM
 
 * **Node.js Pakage Manager** used to install **Node.js packages** and **modules**
 * Easy to specify and link **dependencies**
@@ -173,6 +173,30 @@ server.listen(port, hostname, () => {
 }
 ```
 
+### Running the App
+
+There are a couple of different ways to run this app
+
+* Using the **node command**
+
+```bash
+$ node server01.js
+Server started on port: 3000
+```
+
+* Using the **npm start**
+
+This assumes you have defined a **start script** in the **package.json** file, which is actually running the same commands as above, i.e., **node server01.js**
+
+```bash
+$ npm start
+
+> simple_server@1.0.0 start /home/tracy/source/nodejs/SimpleServer
+> node server01.js
+
+Server started on port: 3000
+```
+
 # NPM package manager
 
 * Make sure it was part of the install (default)
@@ -190,6 +214,10 @@ Installs the **express** module into the **node_modules** folder
 ```
 npm install -g express
 ```
+
+Note that since the **JavaScript** for this app specified ** hostname = '127.0.0.1'** you will only be able to view it on a brower on the **localhost**.  If you want to view it remotely use an **IP address** that is accesible on your network.
+
+To **terminate the server** press **Ctrl+C** on the console.
 
 # Packages and Modules
 
@@ -244,10 +272,10 @@ Example:
 * Useful for creating a live http server for a particular project directory.  This is useful for example when you want to test AJAX calls using a local file system file, since security restraints don't allow you to use the local file system
 * To install
 
-	```
-	npm install -g live-server
-	```
-	Installs it globally
+```
+npm install -g live-server
+```
+Installs it globally
 
 * To run, type this in your project directory
 
@@ -267,86 +295,52 @@ TBD
 
 # Examples
 
-## Simple Server App
- 
-* Create the project folder with a file named **server.js**
-* Create the package.json file
-
-	```
-	npm init
-	```
-	Follow the prompts making sure the "main" entry point is **server.js**
-
-* Enter code in **server.js**
-
-	```
-	const http = require('http');
-	const hostname = '127.0.0.1'
-	const port = '3000'
-
-	const server = http.createServer((req, res) => {
-		res.statusCode = 200;
-		res.setHeader('Content-type', 'text/plain');
-		res.end('Hello World');
-	});
-
-	server.listen(port, hostname, () => {
-		console.log('Server started on port: ' + port);
-	});
-	```
-
-* Run script
-
-	```
-	node server
-	```
-	This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display `Hello World`
-
 ## Serve an HTML file using the fs (file system module)
 
 * Create the project folder with a file named **server.js**
 * Create the package.json file
 
-	```
-	npm init
-	```
-	Follow the prompts making sure the "main" entry point is **server.js**
+```
+npm init
+```
+Follow the prompts making sure the "main" entry point is **server.js**
 
 * Enter code in **server.js**
 
-	```
-	const http = require('http');
-	const fs = require('fs');
+```
+const http = require('http');
+const fs = require('fs');
 
 
-	const hostname = '127.0.0.1'
-	const port = '3000'
+const hostname = '127.0.0.1'
+const port = '3000'
 
-	fs.readFile('index.html', (err, html) => {
-		if (err) {
-			throw err;
-		}
+fs.readFile('index.html', (err, html) => {
+if (err) {
+	throw err;
+}
 
-		const server = http.createServer((req, res) => {
-			res.statusCode = 200;
-			res.setHeader('Content-type', 'text/html');
-			res.setHeader('Server', 'My Superduper Web Server');
-			res.write(html);
-			res.end();
-		});
+const server = http.createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-type', 'text/html');
+	res.setHeader('Server', 'My Superduper Web Server');
+	res.write(html);
+	res.end();
+});
 
-		server.listen(port, hostname, () => {
-			console.log('Server started on port: ' + port);
-		});
-	});
-	```
+server.listen(port, hostname, () => {
+	console.log('Server started on port: ' + port);
+});
+});
+```
 
 * Run script
 
-	```
-	node server
-	```
-	This will run the server.  The server will remain running until you type `Ctrl-c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display the index.html web page read from the file system.
+```
+node server
+```
+
+This will run the server.  The server will remain running until you type `Ctrl+c`.  The console output `Server started on port: 3000` will display.  If you connect to the server in the browser with `localhost:3000` it will display the index.html web page read from the file system.
 
 # NPM
 
