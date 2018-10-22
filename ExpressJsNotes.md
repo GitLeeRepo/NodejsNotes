@@ -34,22 +34,22 @@ Notes on the ExpressJS framework for Node.js
 
 * In the project folder
 
-  ```
-  npm init
+```
+npm init
 
-  npm install express --save
-  ```
-  This initializes the project folder with the package.json file, installs ExpressJS and adds its dependencies to package.json
+npm install express --save
+```
+This initializes the project folder with the package.json file, installs ExpressJS and adds its dependencies to package.json
 
-  Alternatively, you can manually add the following to package.json and run `npm install` without parameters
+Alternatively, you can manually add the following to package.json and run `npm install` without parameters
 
-  ```
-  "dependencies": {
-    "express": "*",
-    "body-parser": "*"
-  },
-  ```
-  In this case it will install express in addition to the body-parser module.  This technique of adding them manually to the package.json first and then running `npm install` is useful when you have several packages to install.
+```
+"dependencies": {
+  "express": "*",
+  "body-parser": "*"
+},
+```
+In this case it will install express in addition to the body-parser module.  This technique of adding them manually to the package.json first and then running `npm install` is useful when you have several packages to install.
 
 # Simple example
 
