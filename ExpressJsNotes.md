@@ -6,7 +6,15 @@ Notes on the ExpressJS framework for Node.js
 
 * [ExpressJS site](https://expressjs.com/)
 
+## YouTube Videos	
+
 * [ExpressJS Crash Course](https://www.youtube.com/watch?v=gnsO8-xJ8rs) YouTube video by Traversy Media
+* [ExpressJS Crash Course](https://www.youtube.com/watch?v=gnsO8-xJ8rs) -- Brad Traversy	
+* [Node.js and Express from Scratch](https://www.youtube.com/watch?v=k_0ZzvHbNBQ&list=PLillGF-RfqbYRpji8t4SxUkMxfowG4Kqp) -- Brad Traversy	
+
+## My Other Notes	
+
+* [NodejNotes](https://github.com/GitLeeRepo/NodejsNotes/blob/master/NodejNotes.md#overview)
 
 # What is ExpressJS
 
