@@ -24,7 +24,7 @@ Notes on Node.js server side JavaScript environment
 
 # Concepts and Terminology
 
-Node.js is/has/does:
+**Node.js** is/has/does:
 
 * **Server-side JavaScript** environment
 * **Event-driven**, **asynchronous** programming model
@@ -37,6 +37,12 @@ Node.js is/has/does:
 * Supports tens of thousands of **concurrent connections**
 * Use **EventEmmitter** class to **bind events to listeners**
 
+**NPM*:
+
+* **Node.js Pakage Manager** used to install **Node.js packages** and **modules**
+* Easy to specify and link **dependencies**
+* **Modules** get installed in **node_modules** folder when installed **locally** with **`npm install <package>`**.
+* **Modules** can also be installed **globally** with **`npm install -g <package.`**
 
 # Installing and running on Windows
 
@@ -119,6 +125,37 @@ sudo apt-get install nodejs npm
 * "dependencies" lists all the required modules (use an asterisks to specify the latest version of a module.
 * You can use `npm init` to create this file for you.
 
+Example:
+
+```json
+{
+  "name": "express_sandbox",
+  "version": "1.0.0",
+  "description": "Sandbox app for learning ExpressJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "^2.5.7",
+    "express": "*",
+    "express-validator": "^4.2.1",
+    "mongojs": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitLeeRepo/ExpressJsSandbox.git"
+  },
+  "author": "Traeven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GitLeeRepo/ExpressJsSandbox/issues"
+  },
+  "homepage": "https://github.com/GitLeeRepo/ExpressJsSandbox#readme"
+}
+```
+
 ## Live Server Module
 
 * Useful for creating a live http server for a particular project directory.  This is useful for example when you want to test AJAX calls using a local file system file, since security restraints don't allow you to use the local file system
@@ -142,6 +179,8 @@ Will run the server on port 8080
 # Creating REST APIs
 
 * Node is used extensively for creating REST APIs
+
+TBD
 
 # Examples
 
