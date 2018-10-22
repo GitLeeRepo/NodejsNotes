@@ -16,6 +16,7 @@ Node.js is/has/does:
 
 * [Main Site](https://nodejs.org/en/)
 * [Node.js for Beginners](https://www.youtube.com/watch?v=U8XF6AFGqlc) YouTube video by Traversy Media.  Several of the notes here taken from this video.
+* [Node.js and Express from Scratch](https://www.youtube.com/watch?v=k_0ZzvHbNBQ&list=PLillGF-RfqbYRpji8t4SxUkMxfowG4Kqp)
 
 ## My Other Notes
 
