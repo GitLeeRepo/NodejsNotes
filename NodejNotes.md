@@ -43,40 +43,14 @@ Notes on Node.js server side JavaScript environment
 * Easy to specify and link **dependencies**
 * **Modules** get installed in **node_modules** folder when installed **locally** with **`npm install <package>`**.
 * **Modules** can also be installed **globally** with **`npm install -g <package.`**
+* **npm init** is used to create an initial **package.json** file.  It will prompt you to enter several of the properties, and can easily be edited using a text editor for additional customization.
+* **package.json** -- is initially created with **npm init** and is stored in the root folder of your project.  It contains the **name of the application**, various **dependecies** and **scripts** for your project, among several other properties.
 
 # Installing and running on Windows
 
 ## Install
 
-* Straightforward MSI install
-
-	[Download](https://nodejs.org/en/)
-
-## Run
-
-* To run the Node.js shell (REPL - Read Evaluate Print Loop) from command line:
-
-	`node` - displays the interactive shell from which you can run JavaScript, including multi-line commands such as **for loops** and **functions**.
-
-	Note: Make sure the Add Path was selected during installation (default) so it is on the path.
-
-	Note: the installation also installs a shortcut to this command that you can search for
-
-* To run a script from the command line
-
-	```
-	node example.js
-	```
-
-* To exit the node shell
-
-	```
-	.exit
-	```
-
-	or
-
-	`Ctr-C Ctrl-C`
+* Straightforward MSI install [Download](https://nodejs.org/en/)
 
 # Install on Ubuntu
 
@@ -85,10 +59,119 @@ sudo apt-get install build-essential
 sudo apt-get install nodejs npm
 ```
 
+# Download Docker image and Run in a Docker Container
+
+**DockerHub Official** versions: [hub.docker.com/_/node/](https://hub.docker.com/_/node/)
+
+```bash
+# to get the latest
+$ docker pull node
+# get a specific version (8.12 Debian Strech in this case)
+$ docker pull node:8.12-stretch
+```
+
+**docker run** example:
+
+This example maps a folder in the container to a folder on the host and uses the **start** script in the **package.json** file to run app (this assumes you already set up and app and created a **package.json** file).
+
+```bash
+docker container run --name node01 -d -p 3000:3000 -v $(pwd)/site:/usr/src/app node:8.12-stretch npm start
+```
+
+Example **Dockerfile** to create your own image:
+
+```
+FROM node:8.12-stretch
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
 # Run in Visual Studio
 
 * Make sure Node.js was installed with Visual Studio Installer
 * Create a new Node.js project with one of the provided templates.
+
+# node Command
+
+## Running node without parameters
+
+If you run **node** without any parameters it brings up the **interactive shell** (referred to as **REPL** - Read Evaluate Print Loop) in which you can enter **JavaScript** statements interactively. 
+
+```bash
+$ node
+> var x = 5
+undefined
+> x
+5
+> x + 3
+8
+> for (var i = 0; i < 5; i++) {
+... console.log(i);
+... }
+0
+1
+2
+3
+4
+.exit
+```
+
+Note the **undefined** above is not an error, it means you just don't have any output from that statement.  Also note that you can **exit the interactive shell** by either pressing **Ctrl+C twice** or by entering **.exit**
+
+Also note that you can't run **browser commands** such as **document.getElementById("x")** since it is not running in the context of the **browser** and the **DOM**.
+
+## Running the node command with a Script
+
+Running the **node** command with a **script** for an **argument** runs that script.
+
+```bash
+$ node http_server.js
+Server running at http://127.0.0.1:3000/
+```
+
+In addition to **server** side scripts, you can run any **JavaScript** you want to run from the **commandline** making it useful for running scripts that don't necessarily have to do with servers and web browsers.
+
+## Simple Web App without External Modules
+
+This web app does not have any **dependencies** defined in the **packages.json** file, you could in fact get by without a package.json, but a basic one is incuded here.  It does use **built-in** modules, such as the **http module** which is included with the **require('http')**
+
+### Example Node.js File
+
+```nodejs
+const http = require('http');
+
+const hostname = '127.0.0.1'
+const port = '3000'
+
+const server = http.createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+	console.log('Server started on port: ' + port);
+});
+```
+
+### Corresponding package.json File
+
+```jason
+{
+  "name": "simple_server",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "server01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Traeven",
+  "license": "ISC"
+}
+```
 
 # NPM package manager
 
@@ -96,17 +179,17 @@ sudo apt-get install nodejs npm
 * Used to install Node.js packages and modules
 * Example - Installing a NPM package local to the project
 
-	```
-	npm install express
-	```
+```
+npm install express
+```
 
-	Installs the **express** module into the **node_modules** folder
+Installs the **express** module into the **node_modules** folder
 
 * Example - Installing a NPM package globally
 
-	```
-	npm install -g express
-	```
+```
+npm install -g express
+```
 
 # Packages and Modules
 
@@ -121,7 +204,7 @@ sudo apt-get install nodejs npm
 ## package.json
 
 * Important JSON file that goes in the root of your module or project folder.  Configuration file used to tell how to install your module or app.
-* "main" in this file is the entry point script for the project
+* "main" in this file is the **entry point** script for the project
 * "dependencies" lists all the required modules (use an asterisks to specify the latest version of a module.
 * You can use `npm init` to create this file for you.
 
