@@ -147,13 +147,13 @@ const hostname = '127.0.0.1'
 const port = '3000'
 
 const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Content-type', 'text/plain');
-	res.end('Hello World');
+   res.statusCode = 200;
+   res.setHeader('Content-type', 'text/plain');
+   res.end('Hello World');
 });
 
 server.listen(port, hostname, () => {
-	console.log('Server started on port: ' + port);
+   console.log('Server started on port: ' + port);
 });
 ```
 
@@ -317,19 +317,19 @@ const port = '3000'
 
 fs.readFile('index.html', (err, html) => {
 if (err) {
-	throw err;
+   throw err;
 }
 
 const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Content-type', 'text/html');
-	res.setHeader('Server', 'My Superduper Web Server');
-	res.write(html);
-	res.end();
+   res.statusCode = 200;
+   res.setHeader('Content-type', 'text/html');
+   res.setHeader('Server', 'My Superduper Web Server');
+   res.write(html);
+   res.end();
 });
 
 server.listen(port, hostname, () => {
-	console.log('Server started on port: ' + port);
+   console.log('Server started on port: ' + port);
 });
 });
 ```
@@ -350,7 +350,7 @@ This will run the server.  The server will remain running until you type `Ctrl+c
 
 * Listing all packages
 
-Select either local list or global list	
+Select either local list or global list   
 ```
 npm list 
 
