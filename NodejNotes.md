@@ -20,6 +20,7 @@ Node.js is/has/does:
 
 ## My Other Notes
 
+* [ExpressJsNotes](https://github.com/GitLeeRepo/NodejsNotes/blob/master/ExpressJsNotes.md#overview)
 * [JavaScriptNotes](https://github.com/GitLeeRepo/JavaScriptNotes/blob/master/JavaScriptNotes.md#overview)
 * [PHPNotes](https://github.com/GitLeeRepo/PHPNotes/blob/master/PHPNotes.md#overview)
 * [PythonNotes](https://github.com/GitLeeRepo/PythonNotes/blob/master/PythonNotes.md#overview)
