@@ -16,6 +16,10 @@ Notes on the ExpressJS framework for Node.js
 
 * [NodejNotes](https://github.com/GitLeeRepo/NodejsNotes/blob/master/NodejNotes.md#overview)
 
+## Code Repositories
+
+* [ExpressJsMongoDemo01](https://github.com/GitLeeRepo/ExpressJsMongoDemo01)
+
 # What is ExpressJS
 
 * A minimalistic open source web framework for Node.js
@@ -23,6 +27,9 @@ Notes on the ExpressJS framework for Node.js
 * Most popular framework for Node.js
 
 * Uses MVC concepts (Model, View, Controller)
+  * Model -- Store the data
+  * View -- Display the interface
+  * Contoller -- direct traffic and load views
 
 # Core concepts
 
@@ -30,11 +37,11 @@ Notes on the ExpressJS framework for Node.js
 
 * Routing 
 
-* Template Engines - EJS, Handlebars, Jade
+* Template Engines - EJS, Handlebars, Jade/Pug
 
 * Models
 
-* Express Generators
+* Express Generators -- generates boiler plate apps
 
 # Installation
 
@@ -44,12 +51,11 @@ Notes on the ExpressJS framework for Node.js
 
 ```
 npm init
-
 npm install express --save
 ```
-This initializes the project folder with the package.json file, installs ExpressJS and adds its dependencies to package.json
+This initializes the project folder with the **package.json** file, **installs Express** and with the **--save** parameter it adds an entry to the **dependencies** to **package.json**
 
-Alternatively, you can manually add the following to package.json and run `npm install` without parameters
+Alternatively, you can **manually** add the following to **package.json** and run **`npm install` without parameters**.
 
 ```
 "dependencies": {
@@ -57,15 +63,51 @@ Alternatively, you can manually add the following to package.json and run `npm i
   "body-parser": "*"
 },
 ```
-In this case it will install express in addition to the body-parser module.  This technique of adding them manually to the package.json first and then running `npm install` is useful when you have several packages to install.
+In this case it will install express in addition to the body-parser module.  This technique of adding them manually to the **package.json** first and then running **`npm install`** without parameters is useful when you have several packages to install.
+
+```bash
+## to install packages added manually in package.json
+$ npm install
+```
 
 # Simple example
 
+## package.json
+
+```json
+{
+  "name": "customer_app",
+  "version": "1.0.0",
+  "description": "Simple Customer Management App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*"
+  },
+  "author": "Traeven",
+  "license": "ISC"
+}
+```
+
+Make sure you have **run npm install** to install the dependencies:
+
+```bash
+## to install packages added manually in package.json
+$ npm install
+```
+
+## app.js
+
 * Simple app.js example
+* Requires express
+* House a **get route handler** for sending a **response**.  It handles **requests** and **responses** (the **req** and **res** parameters.
+* Note this example is using **pre-ES6** syntax, using **require** instead of **import** and using the **pre-ES6** **inline function** style (not **arrow functions**)
 
 ```JavaScript
 var express = require('express');
-
 var app = express();
 
 // Route handler
@@ -109,7 +151,7 @@ var logger = function(req, res, next) {
 }
 app.use(logger);
 ```
-Note this logger event handler will be triggered every time the app is called (page load and refreshes for example)
+Note this logger **event handler** will be triggered every time the app is called (page load and refreshes for example). The **next()** function passes control to the **next middleware function**.  The **app.use()** function call is necessary to **use this middleware**, which is why it is triggered every time that app runs.
 
 ## body-parser middleware example
 
@@ -130,10 +172,12 @@ This enables parsing of JSON and urlencoded content
 * Example
 
 ```
-// static folder middleware
-app.use(express.static(path.join(__dirname, 'client')));
+// static folder middleware for css files and any other static resources
+// create this as a subdirectory of your project folder
+app.use(express.static(path.join(__dirname, 'public')));
 ```
-Tells Express the location of static files (css, html, etc) to be sent to the client (in this case a folder off the project root called client.  Note that if you put an index.html in here it would take precedence and display instead of any server side output.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
+
+Tells Express the location of **static files (css, html, etc)** to be sent to the client (in this case a folder off the project root called **public**.  Note that if you put an **index.html** in here it would **override/take precedenc over** the **app.get res.send() output** displaying the **index.html** instead.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
 
 # Views and Template Engines
 
