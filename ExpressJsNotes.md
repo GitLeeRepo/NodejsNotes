@@ -153,7 +153,7 @@ app.use(logger);
 ```
 Note this logger **event handler** will be triggered every time the app is called (page load and refreshes for example). The **next()** function passes control to the **next middleware function**.  The **app.use()** function call is necessary to **use this middleware**, which is why it is triggered every time that app runs.
 
-## body-parser middleware example
+## body-parser Middleware Example
 
 ```JavaScript
 var express = require('express');
@@ -167,7 +167,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 ```
 This enables parsing of JSON and urlencoded content
 
-## Middleware for setting static folder
+## Middleware for Setting Static Folder
 
 * Example
 
