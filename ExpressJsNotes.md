@@ -203,7 +203,6 @@ npm install ejs --save
 var express = require('express');
 var path = require('path');
 var app = express();
-
 ...
 
 // set view engine
