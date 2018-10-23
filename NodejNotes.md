@@ -269,7 +269,7 @@ Example:
 
 ## nodemon Module/Utility
 
-**nodemon** is a useful utilty that automatically **restarts the server** when you **make changes**, so you don't need to continually stop and start after changes.  It is not included in the package dependencies, but is instead run separately.  Also install it **globally** so that it is **available for all projects**.
+**nodemon** is a useful utilty that automatically **restarts the server** when you **make changes**, so you don't need to continually stop and start after changes.  It is not included in the package dependencies, but is instead run separately.  Also install it **globally** so that it is **available for all projects**.   You use this in placed of **`node appname`**, i.e., use **'nodemon appname`** instead. 
 
 ```bash
 npm install nodemon -g
