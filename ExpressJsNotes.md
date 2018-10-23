@@ -70,6 +70,14 @@ In this case it will install express in addition to the body-parser module.  Thi
 $ npm install
 ```
 
+## Install nodemon
+
+If you haven't already installed **nodemon** you will probably want to, that way you don't have to **restart the server** everytime you make a change.  You use this in placed of **`node appname`**, i.e., use **'nodemon appname`** instead.  This should be installed **globally**
+
+```bash
+npm install nodemon -g
+```
+
 # Simple example
 
 ## package.json
