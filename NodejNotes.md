@@ -267,6 +267,24 @@ Example:
 }
 ```
 
+## nodemon Module/Utility
+
+**nodemon** is a useful utilty that automatically **restarts the server** when you **make changes**, so you don't need to continually stop and start after changes.  It is not included in the package dependencies, but is instead run separately.  Also install it **globally** so that it is **available for all projects**.
+
+```bash
+npm install nodemon -g
+```
+
+Note on **Ubuntu 18.04** I got the following **warnings**:
+
+```bash
+npm WARN optional Skipping failed optional dependency /nodemon/chokidar/fsevents:
+npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.2.4
+```
+
+In which **fsevents**, according to the **npm GitHub** site, is a **Mac only module** and can safely be **ignored**.
+
+
 ## Live Server Module
 
 * Useful for creating a live http server for a particular project directory.  This is useful for example when you want to test AJAX calls using a local file system file, since security restraints don't allow you to use the local file system
