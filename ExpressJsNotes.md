@@ -185,21 +185,35 @@ This enables parsing of JSON and urlencoded content
 app.use(express.static(path.join(__dirname, 'public')));
 ```
 
-Tells Express the location of **static files (css, html, etc)** to be sent to the client (in this case a folder off the project root called **public**.  Note that if you put an **index.html** in here it would **override/take precedenc over** the **app.get res.send() output** displaying the **index.html** instead.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
+Tells Express the location of **static files (css, html, etc)** to be sent to the client (in this case a folder off the project root called **public**.  
+
+Note that when you **include** your **css** file, **don't include public*** since it is automatically assumed, just enter:
+
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+Also note that if you put an **index.html** in the **public** folder it would **override/take precedence over** the **app.get res.send() output** displaying the **index.html** instead.  Any other non-default html file won't do that and the server output still takes precedence on the loading that path.
 
 # Views and Template Engines
 
 ## EJS
 
-* Install
+### Installing EJS and Saving it to the package.json File
 
 ```
 npm install ejs --save
 ```
 
-* Example code for template view
+## Example EJS code for template view
 
-```
+* **app.get** uses **res.render()** instead of **res.send()**
+* You define the **view engine** to be **ejs**
+* You must specify the **view folder**, here is a a **project subfolder** called **views**
+* **res.render()** can be modified to use the **template feature** of the **view engine** (**ejs** in this case) which will pass on a **variable** **title** in this example.
+* an **index.ejs** file is created that contains **html** and **template** code, for example it refers to the **title** passed by **res.render** using **`<% title %>`** syntax  to **expand** its value.
+
+```js
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -222,7 +236,7 @@ app.listen(3000, function() {
 ```
 In this case a simple HTML snippet was placed in the views/index.ejs file which is then output by the res.render() method.
 
-The res.render() can be modified to use the template feature of the view engine (ejs in this case)
+The **res.render()** can be modified to use the **template feature** of the **view engine** (**ejs** in this case).  Here a **ttle** is defined, which will be recogined in the **index.ejs** file by referencing **`<% title %>`**
 
 ```
 app.get('/', function(req, res){
@@ -232,7 +246,7 @@ app.get('/', function(req, res){
 
 If views/index.ejs contains the following:
 
-```
+```html
 <h1><%= title %></h1>
 ```
 it will displays the "View Demo" text in the `<h1>` tag when rendered.
